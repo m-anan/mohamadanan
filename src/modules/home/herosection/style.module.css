@@ -1,0 +1,18 @@
+@keyframes popup {
+    0% {
+        transform: translateY(200px
+        );
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+.popup{
+    animation: popup 1.9s ;
+    min-height: auto !important;
+    height: auto !important;
+}

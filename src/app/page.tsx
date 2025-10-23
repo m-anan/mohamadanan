@@ -1,5 +1,12 @@
+import { CameraPositionProvider } from "@/modules/common/contexts/CameraPositionContext";
+import Home from "@/modules/home";
+
 const Page = () => {
-  return <div>Page</div>;
+  return (
+    <CameraPositionProvider>
+      <Home />
+    </CameraPositionProvider>
+  );
 };
 
 export default Page;

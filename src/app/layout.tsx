@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "@/modules/common/components/Navbar/Navbar";
-import Footer from "@/modules/common/components/Footer/Footer";
 import AosInit from "@/core/hook/AosInit";
 import { notFound } from "next/navigation";
 import localFont from "next/font/local";
 import Providers from "./providers";
-import { CartProvider } from "@/modules/common/contexts/Store";
+import Navbar from "@/modules/common/components/Navbar";
+import Footer from "@/modules/common/components/Footer";
+import { MuseoModerno } from "next/font/google";
 
 const PingARLT = localFont({
   src: [
@@ -17,8 +17,13 @@ const PingARLT = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "متجر تجريبي",
+  title: "Mohamad Anan",
 };
+
+const museoModerno = MuseoModerno({
+  subsets: ["latin"],
+  variable: "--font-museoModerno",
+});
 
 export default async function RootLayout({
   children,
@@ -31,14 +36,12 @@ export default async function RootLayout({
   }
   return (
     <html lang="en">
-      <body className={`${PingARLT.className} bg-[#f9fafb]`}>
+      <body className={`${museoModerno.className} bg-[#f9fafb]`}>
         <AosInit />
         <Providers>
-          {" "}
-          <CartProvider>
-            {children}
-            <Footer />
-          </CartProvider>
+          <Navbar />
+          <div className="min-h-screen"> {children}</div>
+          <Footer />
         </Providers>
       </body>
     </html>
