@@ -105,6 +105,26 @@ const Home = () => {
       }`}
       // style={{ cursor: "url(/src/assets/cur.png), auto" }}
     >
+      {showScreen && (
+        <div className="fixed top-0 left-0 w-full  z-50 bg-gray-500 flex px-3 py-2 gap-2">
+          <span
+            className=" bg-red-500 rounded-full w-3 h-3 group flex items-center justify-center select-none text-center"
+            onClick={() => {
+              setShowScreen(false);
+            }}
+          >
+            <span className="hidden group-hover:block font-sans text-[7px] text-red-950">
+              X
+            </span>
+          </span>
+          <span
+            className=" bg-green-500 rounded-full w-3 h-3 group flex items-center justify-center select-none text-center"
+            onClick={() => {
+              setShowScreen(false);
+            }}
+          ></span>
+        </div>
+      )}
       <div className="fixed right-20 top-20">
         <GlobalImage
           src="/computer.png"
@@ -160,7 +180,7 @@ const Home = () => {
         </div>
 
         <div
-          className="fixed bottom-4 left-[50%] cursor-pointer -translate-x-1/2 text-white "
+          className="fixed bottom-4 left-[50%] cursor-pointer -translate-x-1/2 text-white z-50"
           onClick={() => {
             setData([4, 1, 2]);
           }}
@@ -177,9 +197,12 @@ const Home = () => {
         }}
         camera={{ position: [10, 1, 3] }}
       >
-        <HtmlBox />
-
-        <Stars />
+        {showScreen && (
+          <>
+            <HtmlBox />
+            <Stars />
+          </>
+        )}
         <pointLight color={"#08B4AB"} position={[10, 10, 10]} />
       </Canvas>
     </div>
