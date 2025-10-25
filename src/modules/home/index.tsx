@@ -2,9 +2,6 @@
 import { useState, useRef, useContext, useEffect } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Points, PointMaterial } from "@react-three/drei";
-
-import { Model1 } from "./3d-logo";
-
 import * as THREE from "three";
 // import { Vector3 } from "three";
 import * as random from "maath/random/dist/maath-random.cjs";
