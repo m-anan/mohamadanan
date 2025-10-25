@@ -146,7 +146,7 @@ const Home = () => {
         id="app"
       >
         <div
-          className={"wrapper"}
+          className={"wrapper xs:hidden"}
           style={{
             zIndex: "99999999",
             display: "fixed",
@@ -183,7 +183,9 @@ const Home = () => {
         </div>
 
         <div
-          className="fixed bottom-4 left-[50%] cursor-pointer -translate-x-1/2 text-white z-50"
+          className={`fixed bottom-4 left-[50%] cursor-pointer -translate-x-1/2 text-white z-50 select-none ${
+            !showScreen ? "hidden" : "block"
+          }`}
           onClick={() => {
             setData([4, 1, 2]);
           }}

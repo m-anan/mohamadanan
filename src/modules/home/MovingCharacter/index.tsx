@@ -104,7 +104,7 @@ const MovingCharacter = () => {
         />
       </div>
       {/* Mobile controls */}
-      <div className="fixed bottom-8 right-8 flex flex-col items-center space-y-2  md:hidden select-none">
+      <div className="fixed bottom-10 left-8 flex flex-col items-center space-y-2  md:hidden select-none">
         {/* Up */}
         <button
           className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center text-xl shadow-md active:bg-gray-300"
