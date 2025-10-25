@@ -69,11 +69,11 @@ function HtmlBox() {
           Next.js
         </p>
       </Html>
-      <Model1
+      {/* <Model1
         scale={[0.01, 0.01, 0.01]}
         position={[0, 0.4, 0.3]}
         className="cursor-pointer"
-      />
+      /> */}
     </mesh>
   );
 }
