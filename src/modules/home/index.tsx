@@ -103,9 +103,7 @@ const Home = () => {
       className={`fixed overflow-x-hidden ${
         showScreen ? "right-0 top-0" : "right-28 top-24"
       }`}
-      onClick={() => {
-        if (!showScreen) setShowScreen(true);
-      }}
+
       // style={{ cursor: "url(/src/assets/cur.png), auto" }}
     >
       {showScreen && (
@@ -199,6 +197,9 @@ const Home = () => {
           width: showScreen ? "100vw" : "60px",
           height: showScreen ? "100vh" : "30px",
           background: "#1d1d12",
+        }}
+        onClick={() => {
+          if (!showScreen) setShowScreen(true);
         }}
         camera={{ position: [10, 1, 3] }}
       >
