@@ -11,10 +11,7 @@ type ImageProps = ComponentProps<"img"> & {
 };
 
 const GlobalImage = forwardRef<HTMLImageElement, ImageProps>(
-  function GlobalImage(
-    { alt, src, height, width, fill, placeholder = "blur", ...props },
-    ref
-  ) {
+  function GlobalImage({ alt, src, height, width, fill, ...props }, ref) {
     return (
       <Image
         {...props}
