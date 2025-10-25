@@ -6,26 +6,15 @@ import {
   useState,
   useEffect,
 } from "react";
-import ProductModel from "../../products/models/ProductModel";
 
-export interface CartItem extends ProductModel {
-  quantity: number;
-}
-
-interface CartContextProps<T extends any = any> {
-  data: CartItem[];
-  setData: Dispatch<SetStateAction<T>>;
-  totalPrice: number;
-}
-
-export const CartContext = createContext<CartContextProps>({
+export const CartContext = createContext<any>({
   data: [],
   setData: () => {},
   totalPrice: 0,
 });
 
 export const CartProvider = ({ children }: any) => {
-  const [data, setData] = useState<CartItem[]>([]);
+  const [data, setData] = useState<any[]>([]);
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {

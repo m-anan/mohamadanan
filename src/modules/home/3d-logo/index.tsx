@@ -1,4 +1,4 @@
-import * as THREE from "three";
+// import * as THREE from "three";
 import React, { Suspense, useRef, useState, useEffect } from "react";
 import { Canvas, useLoader, useFrame, useThree } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
@@ -9,7 +9,7 @@ import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
 //@ts-ignore
 import { DDSLoader } from "three/examples/jsm/loaders/DDSLoader";
 
-THREE.DefaultLoadingManager.addHandler(/\.dds$/i, new DDSLoader());
+// THREE.DefaultLoadingManager.addHandler(/\.dds$/i, new DDSLoader());
 
 export function Model1(props: any) {
   const materials = useLoader(MTLLoader, "/A_logo.obj");
