@@ -103,6 +103,9 @@ const Home = () => {
       className={`fixed overflow-x-hidden ${
         showScreen ? "right-0 top-0" : "right-28 top-24"
       }`}
+      onClick={() => {
+        if (!showScreen) setShowScreen(true);
+      }}
       // style={{ cursor: "url(/src/assets/cur.png), auto" }}
     >
       {showScreen && (
@@ -125,15 +128,17 @@ const Home = () => {
           ></span>
         </div>
       )}
-      <div className="fixed right-20 top-20">
+      <div
+        className="fixed right-20 top-20 cursor-pointer"
+        onClick={() => {
+          setShowScreen(true);
+        }}
+      >
         <GlobalImage
           src="/computer.png"
           alt="computer"
           width={120}
           height={120}
-          onClick={() => {
-            setShowScreen(true);
-          }}
         />
       </div>
       <div
