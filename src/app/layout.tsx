@@ -39,9 +39,9 @@ export default async function RootLayout({
       <body className={`${museoModerno.className} bg-[#f9fafb]`}>
         <AosInit />
         <Providers>
-          <Navbar />
+          {/* <Navbar /> */}
           <div className="min-h-screen"> {children}</div>
-          <Footer />
+          {/* <Footer /> */}
         </Providers>
       </body>
     </html>

@@ -4,17 +4,17 @@ import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Points, PointMaterial } from "@react-three/drei";
 
 import { Model1 } from "./3d-logo";
-import Herosection from "./herosection";
 
 import * as THREE from "three";
 // import { Vector3 } from "three";
 import * as random from "maath/random/dist/maath-random.cjs";
 import { Html } from "@react-three/drei";
 import { CameraPositionContext } from "../common/contexts/CameraPositionContext";
+import GlobalImage from "../common/components/GlobalImage/GlobalImage";
 
 // const random = require('maath/random/dist/maath-random.esm')
 
-function Box() {
+function HtmlBox() {
   const { data, setData } = useContext(CameraPositionContext);
 
   const [vec] = useState(() => new THREE.Vector3());
@@ -28,38 +28,45 @@ function Box() {
   const { viewport, camera } = useThree();
   useFrame(() => {
     mesh.current.rotation.x += 0.001;
-    mesh.current.rotation.y += 0.001;
+    // mesh.current.rotation.y += 0.001;
     if (data) {
       camera.position.lerp(vec.set(data[0], data[1], data[2]), 0.05);
     }
   });
 
   return (
-    <mesh ref={mesh} position={[0.6, 0.3, 0.3]}>
+    <mesh ref={mesh} position={[0.6, 0.2, 0.3]}>
       <Html
         occlude
         transform
         distanceFactor={1.5}
+        rotation={[0, 1, 0]}
         position={[0, -0.2, 0]}
         className="z-50"
       >
         <p
           onClick={() => {
-            setData([0.6, 0.8, 0.3]);
+            setData([0.6, 0.3, 0.3]);
           }}
           className="cursor-pointer"
         >
-          Ola
+          React
         </p>
       </Html>
-      <Html transform distanceFactor={1} position={[0, 0, 0]} className="z-50">
+      <Html
+        transform
+        distanceFactor={1}
+        rotation={[0, 1, 0]}
+        position={[0, 0, 0]}
+        className="z-50"
+      >
         <p
           onClick={() => {
-            setData([0.2, 0.1, 0.3]);
+            setData([0.6, 0.5, 0.3]);
           }}
           className="cursor-pointer"
         >
-          Anan
+          Next.js
         </p>
       </Html>
       <Model1
@@ -90,12 +97,25 @@ const Home = () => {
     progress.style.strokeDashoffset = 264 - (perc / 100) * 264;
     setMove(264 - (perc / 100) * 264);
   };
-
+  const [showScreen, setShowScreen] = useState(false);
   return (
     <div
-      className="App overflow-x-hidden"
+      className={`fixed overflow-x-hidden ${
+        showScreen ? "right-0 top-0" : "right-28 top-24"
+      }`}
       // style={{ cursor: "url(/src/assets/cur.png), auto" }}
     >
+      <div className="fixed right-20 top-20">
+        <GlobalImage
+          src="/computer.png"
+          alt="computer"
+          width={120}
+          height={120}
+          onClick={() => {
+            setShowScreen(true);
+          }}
+        />
+      </div>
       <div
         className="scroller"
         onScroll={handleScroll}
@@ -139,9 +159,8 @@ const Home = () => {
           </div>
         </div>
 
-        <Herosection />
         <div
-          className="fixed bottom-4 left-[50%] cursor-pointer -translate-x-1/2 text-white"
+          className="fixed bottom-4 left-[50%] cursor-pointer -translate-x-1/2 text-white "
           onClick={() => {
             setData([4, 1, 2]);
           }}
@@ -151,10 +170,14 @@ const Home = () => {
       </div>
 
       <Canvas
-        style={{ width: "100vw", height: "100vh", background: "#010100" }}
+        style={{
+          width: showScreen ? "100vw" : "60px",
+          height: showScreen ? "100vh" : "30px",
+          background: "#1d1d12",
+        }}
         camera={{ position: [10, 1, 3] }}
       >
-        <Box />
+        <HtmlBox />
 
         <Stars />
         <pointLight color={"#08B4AB"} position={[10, 10, 10]} />

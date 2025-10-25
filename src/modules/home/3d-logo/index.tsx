@@ -2,8 +2,11 @@ import * as THREE from "three";
 import React, { Suspense, useRef, useState, useEffect } from "react";
 import { Canvas, useLoader, useFrame, useThree } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
+//@ts-ignore
 import { MTLLoader } from "three/examples/jsm/loaders/MTLLoader";
+//@ts-ignore
 import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
+//@ts-ignore
 import { DDSLoader } from "three/examples/jsm/loaders/DDSLoader";
 
 THREE.DefaultLoadingManager.addHandler(/\.dds$/i, new DDSLoader());
