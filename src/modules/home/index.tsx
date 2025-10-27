@@ -456,7 +456,7 @@ function HtmlBox({
     // mesh.current.rotation.y += 0.001;
     // mesh.current.position.lerp(target, 0.05);
     const dist = camera.position.distanceTo(mesh.current.position);
-    setVisible(dist < 5);
+    setVisible(dist < 3);
     data && camera.position.lerp(vec.set(data[0], data[1], data[2]), 0.05);
   });
   const [target, setTarget] = useState(
