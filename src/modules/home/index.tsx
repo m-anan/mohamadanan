@@ -405,7 +405,7 @@ function Stars(props: any) {
     camera.position.lerp(vec.set(1.3, 0, 5), 0.05);
   });
   const [sphere] = useState(() =>
-    random.inSphere(new Float32Array(550), { radius: 4 })
+    random.inSphere(new Float32Array(400), { radius: 4 })
   );
   return (
     <group rotation={[0, 0, Math.PI / 4]}>
@@ -450,11 +450,13 @@ function HtmlBox({
     x = e.clientX;
   };
   const { viewport, camera } = useThree();
+  const [visible, setVisible] = useState(false);
   useFrame(() => {
     // mesh.current.rotation.z += 0.001;
     // mesh.current.rotation.y += 0.001;
     // mesh.current.position.lerp(target, 0.05);
-
+    const dist = camera.position.distanceTo(mesh.current.position);
+    setVisible(dist < 5);
     data && camera.position.lerp(vec.set(data[0], data[1], data[2]), 0.05);
   });
   const [target, setTarget] = useState(
@@ -476,15 +478,17 @@ function HtmlBox({
   };
   return (
     <mesh ref={mesh} position={position}>
-      <Html
-        occlude
-        transform
-        distanceFactor={1.5}
-        rotation={[0, 0, 0]}
-        className="z-50"
-      >
-        {children}
-        {/* <p
+      {visible && (
+        <Html
+          occlude
+          transform
+          distanceFactor={1.5}
+          rotation={[0, 0, 0]}
+          className="z-50"
+          zIndexRange={[0, 0]}
+        >
+          {children}
+          {/* <p
           onClick={() => {
             // setData([0.6, 0.3, 0.3]);
             handleClick();
@@ -501,7 +505,8 @@ function HtmlBox({
         >
           Next.js
         </p> */}
-      </Html>
+        </Html>
+      )}
       {/* <Html
         transform
         distanceFactor={1}
