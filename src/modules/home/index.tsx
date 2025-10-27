@@ -132,7 +132,7 @@ const Home = () => {
       <Canvas
         style={{
           width: showScreen ? "100vw" : "60px",
-          height: showScreen ? "100vh" : "30px",
+          height: showScreen ? "100dvh" : "30px",
           background: "#1d1d12",
         }}
         onClick={() => {
@@ -375,7 +375,7 @@ const Home = () => {
           </span> */}
         <span
           onClick={() => {
-            setData([-5.5, 0, -0.7]);
+            setData([-5.4, 0, 0]);
           }}
           className="rounded-full p-2 bg-gray-500"
         >

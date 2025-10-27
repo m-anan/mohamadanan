@@ -95,7 +95,7 @@ const MovingCharacter = () => {
           height={80}
           alt="me"
           src={images[frame - 1]}
-          className={`trnasition-all duration-300 ${
+          className={`trnasition-all duration-300 select-none ${
             direction === "left" ? "-scale-x-100" : "scale-x-100"
           } `}
           style={{
