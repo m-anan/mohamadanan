@@ -188,7 +188,7 @@ const Home = () => {
                 </div>
               </div>
             </HtmlBox>
-            <HtmlBox data={data} setData={setData} position={[3, 3, -3]}>
+            <HtmlBox data={data} setData={setData} position={[3, 2.6, -3]}>
               <div className="my-10 border rounded-md p-5 max-h-screen overflow-auto">
                 <div className="an-move-top-fade an-active">
                   <h2 className="text-3xl mb-20">My Service:</h2>
