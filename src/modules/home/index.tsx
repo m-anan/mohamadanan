@@ -47,7 +47,7 @@ const Home = () => {
   return (
     <div
       className={`fixed overflow-x-hidden ${
-        showScreen ? "right-0 top-0" : "right-28 top-24"
+        showScreen ? "right-0 top-0" : "right-[116px] top-24 xs:right-[53px]"
       }`}
 
       // style={{ cursor: "url(/src/assets/cur.png), auto" }}
@@ -73,7 +73,7 @@ const Home = () => {
         </div>
       )}
       <div
-        className="fixed right-20 top-20 cursor-pointer"
+        className="fixed right-20 top-20 xs:right-4 cursor-pointer"
         onClick={() => {
           setShowScreen(true);
         }}
@@ -81,8 +81,8 @@ const Home = () => {
         <GlobalImage
           src="/computer.png"
           alt="computer"
-          width={120}
-          height={120}
+          width={140}
+          height={140}
         />
       </div>
       <div
@@ -131,8 +131,8 @@ const Home = () => {
 
       <Canvas
         style={{
-          width: showScreen ? "100vw" : "60px",
-          height: showScreen ? "100dvh" : "30px",
+          width: showScreen ? "100vw" : "70px",
+          height: showScreen ? "100dvh" : "37px",
           background: "#1d1d12",
         }}
         onClick={() => {
