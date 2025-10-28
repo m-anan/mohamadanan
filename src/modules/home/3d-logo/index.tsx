@@ -32,8 +32,12 @@ export function Model1(props: any) {
       child.receiveShadow = true;
     }
   });
-
-  return <primitive object={obj} args={[1, 1, 1]} {...props} />;
+  const mesh: any = useRef();
+  useFrame(() => {
+    mesh.current.rotation.y += 0.0005;
+    mesh.current.rotation.x += 0.0005;
+  });
+  return <primitive ref={mesh} object={obj} args={[1, 1, 1]} {...props} />;
 }
 
 export function Model(props: any) {

@@ -21,7 +21,7 @@ import * as random from "maath/random/dist/maath-random.cjs";
 import { Html } from "@react-three/drei";
 import { CameraPositionContext } from "../common/contexts/CameraPositionContext";
 import GlobalImage from "../common/components/GlobalImage/GlobalImage";
-import { BiHome, BiInfoCircle } from "react-icons/bi";
+import { BiDetail, BiHome, BiInfoCircle } from "react-icons/bi";
 import { Model1 } from "./3d-logo";
 
 // const random = require('maath/random/dist/maath-random.esm')
@@ -343,10 +343,9 @@ const Home = () => {
               React
             </HtmlBox> */}
             <ambientLight intensity={0.6} />
-            <directionalLight position={[10, 10, 5]} intensity={1.5} />
-            <pointLight position={[-10, -10, -10]} intensity={0.5} />
+            <directionalLight position={[10, 10, 20]} intensity={1.5} />
             <Suspense fallback={null}>
-              <Model1 position={[0, 0, 0]} scale={[0.5, 0.5, 0.5]} />
+              <Model1 position={[-6, 4, -8]} scale={[0.5, 0.5, 0.5]} />
             </Suspense>
             <Stars />
           </>
@@ -354,7 +353,7 @@ const Home = () => {
         <pointLight color={"#08B4AB"} position={[0, 0, 0]} />
       </Canvas>
       <div
-        className={`fixed bottom-1/2 right-2 cursor-pointer -translate-y-1/2 text-white z-[9999999999] select-none ${
+        className={`fixed bottom-1/2 right-2 cursor-pointer -translate-y-1/2 text-white z-[9999999999] select-none gap-2 ${
           !showScreen ? "hidden" : "flex flex-col"
         }`}
       >
@@ -372,7 +371,7 @@ const Home = () => {
           }}
           className="rounded-full p-2 bg-gray-500"
         >
-          <BiHome />
+          <BiDetail />
         </span>
         {/* <span
             onClick={() => {
@@ -388,7 +387,7 @@ const Home = () => {
           }}
           className="rounded-full p-2 bg-gray-500"
         >
-          <BiHome />
+          <BiInfoCircle />
         </span>
       </div>
     </div>
