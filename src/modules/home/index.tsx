@@ -339,9 +339,6 @@ const Home = () => {
               </div>
             </HtmlBox>
 
-            {/* <HtmlBox data={data} setData={setData} position={[2, 0, 1]}>
-              React
-            </HtmlBox> */}
             <ambientLight intensity={0.6} />
             <directionalLight position={[10, 10, 20]} intensity={1.5} />
             <Suspense fallback={null}>
@@ -373,14 +370,7 @@ const Home = () => {
         >
           <BiDetail />
         </span>
-        {/* <span
-            onClick={() => {
-              setData([2, 0, 2]);
-            }}
-            className="rounded-full p-2 bg-gray-500"
-          >
-            <BiInfoCircle />
-          </span> */}
+
         <span
           onClick={() => {
             setData([-5.4, 0, 0]);
@@ -495,38 +485,8 @@ function HtmlBox({
           className="z-50"
         >
           {children}
-          {/* <p
-          onClick={() => {
-            // setData([0.6, 0.3, 0.3]);
-            handleClick();
-          }}
-          className="cursor-pointer select-none"
-        >
-          React
-        </p>
-        <p
-          onClick={() => {
-            setData([0.6, 0.5, 0.3]);
-          }}
-          className="cursor-pointer"
-        >
-          Next.js
-        </p> */}
         </Html>
       )}
-      {/* <Html
-        transform
-        distanceFactor={1}
-        rotation={[0, 1, 0]}
-        position={[0, 0, 0]}
-        className="z-50"
-      ></Html> */}
-
-      {/* <Model1
-        // scale={[0.01, 0.01, 0.01]}
-        position={[0, 0.4, 0.3]}
-        className="cursor-pointer"
-      /> */}
     </mesh>
   );
 }
