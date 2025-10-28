@@ -81,7 +81,7 @@ const Home = () => {
         }}
       >
         <GlobalImage
-          src="/computer.png"
+          src="/black-hole-dark-circles.gif"
           alt="computer"
           width={140}
           height={140}
@@ -133,8 +133,8 @@ const Home = () => {
 
       <Canvas
         style={{
-          width: showScreen ? "100vw" : "70px",
-          height: showScreen ? "100dvh" : "37px",
+          width: showScreen ? "100vw" : "0",
+          height: showScreen ? "100dvh" : "0",
           background: "#1d1d12",
         }}
         onClick={() => {
