@@ -1,4 +1,4 @@
-// import * as THREE from "three";
+import * as THREE from "three";
 import React, { Suspense, useRef, useState, useEffect } from "react";
 import { Canvas, useLoader, useFrame, useThree } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
@@ -9,21 +9,36 @@ import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
 //@ts-ignore
 import { DDSLoader } from "three/examples/jsm/loaders/DDSLoader";
 
-// THREE.DefaultLoadingManager.addHandler(/\.dds$/i, new DDSLoader());
+THREE.DefaultLoadingManager.addHandler(/\.dds$/i, new DDSLoader());
 
 export function Model1(props: any) {
-  const materials = useLoader(MTLLoader, "/A_logo.obj");
-  const obj = useLoader(OBJLoader, "/A_logo.obj", (loader) => {
+  const materials = useLoader(MTLLoader, "/Moon.mtl");
+  const obj = useLoader(OBJLoader, "/Moon.obj", (loader) => {
     materials.preload();
     loader.setMaterials(materials);
+  });
+  // Load your textures manually
+  const colorMap = useLoader(THREE.TextureLoader, "/Diffuse_2K.png"); // your color texture
+  const normalMap = useLoader(THREE.TextureLoader, "/Bump_2K.png"); // your normal/bump texture
+
+  // Apply the textures to all meshes in the model
+  obj.traverse((child: any) => {
+    if (child.isMesh) {
+      child.material = new THREE.MeshStandardMaterial({
+        map: colorMap,
+        normalMap: normalMap,
+      });
+      child.castShadow = true;
+      child.receiveShadow = true;
+    }
   });
 
   return <primitive object={obj} args={[1, 1, 1]} {...props} />;
 }
 
 export function Model(props: any) {
-  const materials = useLoader(MTLLoader, "/src/assets/A_logo_02.obj");
-  const obj = useLoader(OBJLoader, "/src/assets/A_logo_02.obj", (loader) => {
+  const materials = useLoader(MTLLoader, "/A_logo_02.obj");
+  const obj = useLoader(OBJLoader, "/A_logo_02.obj", (loader) => {
     materials.preload();
     loader.setMaterials(materials);
   });

@@ -7,10 +7,11 @@ import {
   Dispatch,
   SetStateAction,
   ReactNode,
+  Suspense,
 } from "react";
 
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { Points, PointMaterial } from "@react-three/drei";
+import { Points, PointMaterial, OrbitControls } from "@react-three/drei";
 
 // import { Model1 } from "./3d-logo";
 
@@ -21,6 +22,7 @@ import { Html } from "@react-three/drei";
 import { CameraPositionContext } from "../common/contexts/CameraPositionContext";
 import GlobalImage from "../common/components/GlobalImage/GlobalImage";
 import { BiHome, BiInfoCircle } from "react-icons/bi";
+import { Model1 } from "./3d-logo";
 
 // const random = require('maath/random/dist/maath-random.esm')
 
@@ -336,9 +338,16 @@ const Home = () => {
                 </div>
               </div>
             </HtmlBox>
+
             {/* <HtmlBox data={data} setData={setData} position={[2, 0, 1]}>
               React
             </HtmlBox> */}
+            <ambientLight intensity={0.6} />
+            <directionalLight position={[10, 10, 5]} intensity={1.5} />
+            <pointLight position={[-10, -10, -10]} intensity={0.5} />
+            <Suspense fallback={null}>
+              <Model1 position={[0, 0, 0]} scale={[0.5, 0.5, 0.5]} />
+            </Suspense>
             <Stars />
           </>
         )}
@@ -513,8 +522,9 @@ function HtmlBox({
         position={[0, 0, 0]}
         className="z-50"
       ></Html> */}
+
       {/* <Model1
-        scale={[0.01, 0.01, 0.01]}
+        // scale={[0.01, 0.01, 0.01]}
         position={[0, 0.4, 0.3]}
         className="cursor-pointer"
       /> */}
