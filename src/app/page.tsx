@@ -6,7 +6,7 @@ import MovingCharacter from "@/modules/home/MovingCharacter";
 const Page = () => {
   return (
     <CameraPositionProvider>
-      <MovingCharacter />
+      {/* <MovingCharacter /> */}
 
       <Home />
     </CameraPositionProvider>
